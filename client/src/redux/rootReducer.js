@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { personReducer } from "./personReducer"
+import { personReducer } from "./main/personReducer"
 
 // rootReducer он же 'state' в useSelector(state => state.****)
 

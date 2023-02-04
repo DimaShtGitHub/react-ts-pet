@@ -1,18 +1,19 @@
 import { useSelector, useDispatch } from "react-redux"
+import { edit, clear } from "../../redux/main/personActions"
 import cls from './Form.module.css'
 
 const Form = () => {
-    const person = useSelector(state => state.person)
+    const personContent = useSelector(state => state.person)
     const dispatch = useDispatch()
     
     const editPerson = () => {
-        dispatch({type: 'USER_TYPING', payload: {name: '', surName: '', age: ''}})
+        dispatch(clear())
     }
 
     const submitHandler = (e) => {
         e.preventDefault()
         let input = e.target
-        dispatch({type: 'USER_TYPING', payload: {name: input[0].value, surName: input[1].value, age: input[2].value}})
+        dispatch(edit(input))
     }
 
     return (
@@ -21,9 +22,9 @@ const Form = () => {
 
                 <h1>Form</h1>
 
-                <p>Name: {person.person.name}</p>
-                <p>SurName: {person.person.surName}</p>
-                <p>Age: {person.person.age}</p>
+                <p>Name: {personContent.person.name}</p>
+                <p>SurName: {personContent.person.surName}</p>
+                <p>Age: {personContent.person.age}</p>
 
                 <div onClick={editPerson} className={cls.blank_button}>clear form</div>
             </div>
@@ -31,13 +32,16 @@ const Form = () => {
             <div className={cls.blank}>
                 <form onSubmit={submitHandler}>
                     <input 
+                        name={'name'}
                         placeholder={'name'}
                     />
 
                     <input
+                        name={'sur-name'}
                         placeholder={'sur-name'}
                     />
                     <input
+                        name={'age'}
                         placeholder={'age'}
                     />
                     <button> send</button>
