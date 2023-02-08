@@ -3,5 +3,6 @@ p {
   font-weight: 600;
 }
 .container {
+  width: 100%;
   display: flex;
 }

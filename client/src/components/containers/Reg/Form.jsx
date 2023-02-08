@@ -1,5 +1,7 @@
+import React from 'react'
 import { useSelector, useDispatch } from "react-redux"
-import { edit, clear } from "../../redux/main/personActions"
+import { edit, clear } from "../../../redux/main/personActions"
+
 import cls from './Form.module.css'
 
 const Form = () => {
@@ -12,8 +14,8 @@ const Form = () => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        let input = e.target
-        dispatch(edit(input))
+        
+        dispatch(edit(e.target))
     }
 
     return (

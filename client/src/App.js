@@ -1,10 +1,20 @@
+import React from 'react'
 import './App.css';
-import Form from './components/Form/Form';
+import { Route, Routes } from 'react-router-dom';
+
+import MainPage from './components/pages/MainPage/MainPage';
+import HomePage from './components/pages/HomePage/HomePage';
+import RegPage from './components/pages/RegPage/RegPage';
 
 function App() {
   return (
     <div className='container'>
-      <Form/>
+      <Routes>
+        <Route path={'/'} element={<HomePage />} />
+        <Route path={'/main'} element={<MainPage />}/>
+        {/* <Route path={'/form'} element={<Form/>} /> */}
+        <Route path={'/reg'} element={<RegPage/>} />
+      </Routes>
     </div>
   );
 }
