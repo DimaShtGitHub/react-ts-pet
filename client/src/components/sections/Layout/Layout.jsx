@@ -16,7 +16,7 @@ export default function Layout({children}) {
       <div className={cls.content} >
         <Header />
 
-        <div >
+        <div className={cls.content_body}>
           {children}
         </div>
       </div>

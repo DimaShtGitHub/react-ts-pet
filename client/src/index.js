@@ -16,10 +16,6 @@ const router = createBrowserRouter([
       path: '/',
       element: <App />,
       children: [
-        // {
-        //   path: 'form',
-        //   // element: <Form />
-        // },
         {
           path: 'main',
           element: <MainPage />
@@ -35,9 +31,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    {/* <BrowserRouter >
-      <App />
-    </BrowserRouter> */}
     <RouterProvider router={router} />
   </Provider>
   

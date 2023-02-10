@@ -12,7 +12,6 @@ function App() {
       <Routes>
         <Route path={'/'} element={<HomePage />} />
         <Route path={'/main'} element={<MainPage />}/>
-        {/* <Route path={'/form'} element={<Form/>} /> */}
         <Route path={'/reg'} element={<RegPage/>} />
       </Routes>
     </div>

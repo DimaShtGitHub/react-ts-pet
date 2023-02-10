@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux"
-import { edit, clear } from "../../../redux/main/personActions"
+// import { edit, clear } from "../../../redux/main/personActions"
+import {get, edit, clear} from '../../../redux/features/person/personSlice'
 
 import cls from './Form.module.css'
 
@@ -8,14 +9,29 @@ const Form = () => {
     const personContent = useSelector(state => state.person)
     const dispatch = useDispatch()
     
-    const editPerson = () => {
+    const clearPerson = () => {
         dispatch(clear())
     }
 
     const submitHandler = (e) => {
         e.preventDefault()
         
-        dispatch(edit(e.target))
+        const packingInputs = (e) => {
+            const obj = {
+                [e.target[0].name]: e.target[0].value,
+                [e.target[1].name]: e.target[1].value,
+                [e.target[2].name]: e.target[2].value
+            }
+
+            console.log(obj);
+            return obj
+        }
+
+        packingInputs(e)
+
+        
+
+        dispatch(edit(packingInputs(e)))
     }
 
     return (
@@ -24,11 +40,11 @@ const Form = () => {
 
                 <h1>Form</h1>
 
-                <p>Name: {personContent.person.name}</p>
-                <p>SurName: {personContent.person.surName}</p>
-                <p>Age: {personContent.person.age}</p>
+                <p>Name: {personContent.name}</p>
+                <p>SurName: {personContent.surname}</p>
+                <p>Age: {personContent.age}</p>
 
-                <div onClick={editPerson} className={cls.blank_button}>clear form</div>
+                <div onClick={clearPerson} className={cls.blank_button}>clear form</div>
             </div>
 
             <div className={cls.blank}>
@@ -39,8 +55,8 @@ const Form = () => {
                     />
 
                     <input
-                        name={'sur-name'}
-                        placeholder={'sur-name'}
+                        name={'surname'}
+                        placeholder={'surname'}
                     />
                     <input
                         name={'age'}
