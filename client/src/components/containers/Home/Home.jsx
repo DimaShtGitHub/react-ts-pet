@@ -1,5 +1,5 @@
 import React from 'react'
-import cls from './style.module.css'
+// import cls from './style.module.css'
 
 export default function Home() {
   return (

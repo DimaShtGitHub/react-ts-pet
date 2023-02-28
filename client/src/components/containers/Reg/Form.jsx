@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux"
 // import { edit, clear } from "../../../redux/main/personActions"
-import {get, edit, clear} from '../../../redux/features/person/personSlice'
+import {edit, clear} from '../../../redux/features/person/personSlice'
 
 import cls from './Form.module.css'
 
